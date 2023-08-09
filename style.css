@@ -64,6 +64,7 @@ body {
 }
 
 .button-container {
+  display: flex;
   flex-wrap: wrap; /* Wrap buttons to new lines when they exceed width */
   justify-content: center;
 }

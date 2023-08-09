@@ -1,8 +1,71 @@
-// var session = new QiSession();
+var session = new QiSession();
 
 var whichLevel = 0;
 const levels = [
   {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
+    name: 'Лейка', 
+    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+    images: [
+      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+    ]
+  }, {
     name: 'Лейка', 
     mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
     images: [
@@ -53,9 +116,9 @@ function answerHandler(i) {
   document.querySelector(`#img${i}`).setAttribute('clicked', true);
   if(JSON.parse(document.querySelector(`#img${i}`).getAttribute('correct'))) {
     //correct answer 
-    // session.service("ALMemory").then(function (memory) {
-    //   memory.raiseEvent("success","param1");
-    // });
+    session.service("ALMemory").then(function (memory) {
+      memory.raiseEvent("success","param1");
+    });
     document.querySelectorAll('.option')[i].style.border = '6px solid rgb(88, 204, 2)';
 
     //check if all correct answers are clicked
@@ -80,14 +143,14 @@ function answerHandler(i) {
     //wrong answer
     createPopup(`<h1>Грешен отговор</h1><button id='try-again' onclick='removePopup();'>Опитай пак</button>`);
 
-    // session.service("ALMemory").then(function (memory) {
-    //   memory.raiseEvent("failure","param2");
-    // });
+    session.service("ALMemory").then(function (memory) {
+      memory.raiseEvent("failure","param2");
+    });
     document.querySelectorAll('.option')[i].style.border = '6px solid red';
   }
 }
 function clickHandler(level) {
-  whichLevel = levels.findIndex((el) => el.name == level.name);
+  whichLevel = levels.findIndex(function(el){ return el.name == level.name});
   setTimeout(function() {
     var imagesHtml = '';
     for(var i = 0;i < level.images.length;i++) {
@@ -126,24 +189,15 @@ function createButton(level) {
 
 
 
-// session.socket().on('connect', function () {
+session.socket().on('connect', function () {
 
-//   for(var i = 0; i < levels.length;i++) {
-//     document.querySelector('#textField').style.display = 'block';
-//     createButton(levels[i]);
-//   }
-
-//   // session.service("ALTextToSpeech").then(function (tts) {
-    
-//   //   tts.say('Hello! Choose a word.');
-//   // }, function (error) {
-//   //   console.log("An error occurred:", error);
-//   // });
-//   // var animation_player_service = session.service("ALRobotPosture")
-//   // animation_player_service.goToPosture("Crouch", 1.0);
+  for(var i = 0; i < levels.length;i++) {
+    document.querySelector('#textField').style.display = 'block';
+    createButton(levels[i]);
+  }
   
 
   
-// }).on('disconnect', function () {
-//   console.log('QiSession disconnected!');
-// });
+}).on('disconnect', function () {
+  console.log('QiSession disconnected!');
+});
