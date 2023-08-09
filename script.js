@@ -1,16 +1,6 @@
-// var host = '192.168.0.103';
 // var session = new QiSession();
 
-
-// function disconnected() {
-//   console.log('disconnected');
-// }
-// QiSession(function(session) {
-//   for(var i = 0; i < levels.length;i++) {
-//     createButton(levels[i]);
-//   }
-// }, disconnected, host);
-
+var whichLevel = 0;
 const levels = [
   {
     name: 'Лейка', 
@@ -28,7 +18,7 @@ for(var i = 0; i < levels.length;i++) {
    createButton(levels[i]);
 }
 
-function removePopup() {
+function removePopup(time = 220) {
   setTimeout(function() {
     document.body.removeChild(document.querySelector('.background'));
     document.body.removeChild(document.querySelector('.popup'));
@@ -36,11 +26,7 @@ function removePopup() {
       document.querySelectorAll(`.option`)[i].style.border = '6px solid #ccc';
       document.querySelectorAll(`.option img`)[i].setAttribute('clicked', false);
     }
-  }, 250);
-};
-function goBack() {
-  document.body.removeChild(document.querySelector('.container'));
-  document.body.appendChild(document.querySelector('.button-container'));
+  }, time);
 };
 
 function createPopup(innerHTML) {
@@ -53,6 +39,15 @@ function createPopup(innerHTML) {
   document.body.appendChild(popup);
 }
 
+function nextLevel() {
+  removePopup(100);
+  document.body.removeChild(document.querySelector('.container'))
+  if(whichLevel == levels.length - 1) {
+    clickHandler(levels[0])
+  } else {
+    clickHandler(levels[whichLevel + 1]);
+  }
+};
 
 function answerHandler(i) {
   document.querySelector(`#img${i}`).setAttribute('clicked', true);
@@ -74,7 +69,12 @@ function answerHandler(i) {
       }
     }
     if(correct === correctandclicked) {
-      createPopup(`<h1>Браво!</h1><button id='try-again' onclick='removePopup();goBack();'>Играй отново</button>`);
+      createPopup(`
+        <h1>Браво!</h1>
+        <div class='popup-btns'>
+          <button style='margin-right: 20px' id='try-again' onclick='removePopup(); location.reload()'>Към меню</button>
+          <button onClick='nextLevel()' style='margin-left: 20px'>Напред</button>
+        </div>`);
     }
   } else {
     //wrong answer
@@ -87,6 +87,7 @@ function answerHandler(i) {
   }
 }
 function clickHandler(level) {
+  whichLevel = levels.findIndex((el) => el.name == level.name);
   setTimeout(function() {
     var imagesHtml = '';
     for(var i = 0;i < level.images.length;i++) {
@@ -94,7 +95,9 @@ function clickHandler(level) {
       <img src=${level.images[i].url} correct='${level.images[i].correct}' id='img${i}' alt="option ${i + 1}">
     </div>`
     }
-    document.body.removeChild(document.querySelector('.button-container'));
+    if(document.querySelector('.button-container') != null) {
+      document.body.removeChild(document.querySelector('.button-container'));
+    }
     const container = document.createElement('div');
     container.className = 'container';
     container.innerHTML = 
@@ -107,7 +110,7 @@ function clickHandler(level) {
     ${imagesHtml}
     </div>
   ` 
-  
+    document.querySelector('.back-button').style.display = 'flex';
     document.body.appendChild(container);
   }, 250);
 };
@@ -144,44 +147,3 @@ function createButton(level) {
 // }).on('disconnect', function () {
 //   console.log('QiSession disconnected!');
 // });
-
-// function launchEvent(){
-//   session.service("ALMemory").then(function (memory) {
-//     memory.raiseEvent("event1","param1");
-//   });
-// }
-
-// function btn1Handler() {
-//   // session.service("ALTextToSpeech").then(function (tts) {
-//   //   // tts is a proxy to the ALTextToSpeech service
-//   //   tts.say('one');
-//   // }, function (error) {
-//   //   console.log("An error occurred:", error);
-//   // });
-//   // launchEvent();
-
-  
-//   session.service("ALMemory").then(function (memory) {
-//     memory.raiseEvent("event1","param1");
-//   });
-// }
-
-// function btn2Handler() {
-//   session.service("ALTextToSpeech").then(function (tts) {
-//     // tts is a proxy to the ALTextToSpeech service
-//     tts.say('two');
-//   }, function (error) {
-//     console.log("An error occurred:", error);
-//   });
-// }
-
-// function btn3Handler() {
-//   session.service("ALTextToSpeech").then(function (tts) {
-//     // tts is a proxy to the ALTextToSpeech service
-//     tts.say('three');
-//   }, function (error) {
-//     console.log("An error occurred:", error);
-//   });
-
-// }
-
