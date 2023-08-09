@@ -10,78 +10,18 @@ const levels = [
       {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
     ]
   }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
-  }, {
-    name: 'Лейка', 
-    mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
-    images: [
-      {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
-      {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
-    ]
+    name: 'Лейка 2', 
+  mainImage: 'https://roto.bg/wp-content/uploads/2021/08/%D0%9B%D0%B5%D0%B9%D0%BA%D0%B0-12-%D0%BB%D0%B8%D1%82%D1%80%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%86%D0%B2%D0%B5%D1%82%D1%8F-%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B0.jpg',
+  images: [
+    {url: "https://www.artpark.bg/images/stories/virtuemart/product/peika-ot-darvo-i-chugun6.jpg", correct:true}, 
+    {url: "https://freepngimg.com/thumb/tree/5-2-tree-free-download-png.png", correct:false},
+  ]
   },
   {name: 'Stepan', images: [{url: "https://www.varriosport.bg/media/6/32521.jpg", correct:true}, 
   {url: "https://www.varriosport.bg/media/6/32521.jpg", correct:false}]}
 ];
 
-for(var i = 0; i < levels.length;i++) {
-   createButton(levels[i]);
-}
-
-function removePopup(time = 220) {
+function removePopup() {
   setTimeout(function() {
     document.body.removeChild(document.querySelector('.background'));
     document.body.removeChild(document.querySelector('.popup'));
@@ -89,7 +29,7 @@ function removePopup(time = 220) {
       document.querySelectorAll(`.option`)[i].style.border = '6px solid #ccc';
       document.querySelectorAll(`.option img`)[i].setAttribute('clicked', false);
     }
-  }, time);
+  });
 };
 
 function createPopup(innerHTML) {
@@ -103,7 +43,7 @@ function createPopup(innerHTML) {
 }
 
 function nextLevel() {
-  removePopup(100);
+  removePopup();
   document.body.removeChild(document.querySelector('.container'))
   if(whichLevel == levels.length - 1) {
     clickHandler(levels[0])
@@ -150,7 +90,12 @@ function answerHandler(i) {
   }
 }
 function clickHandler(level) {
-  whichLevel = levels.findIndex(function(el){ return el.name == level.name});
+  for(var i = 0;i < levels.length;i++) {
+    if(levels[i].name == level.name) {
+      whichLevel = i;
+      document.querySelector('.back-button').innerHTML = whichLevel + ' + ' + level.name;
+    }
+  }
   setTimeout(function() {
     var imagesHtml = '';
     for(var i = 0;i < level.images.length;i++) {
@@ -190,14 +135,9 @@ function createButton(level) {
 
 
 session.socket().on('connect', function () {
-
   for(var i = 0; i < levels.length;i++) {
-    document.querySelector('#textField').style.display = 'block';
     createButton(levels[i]);
   }
-  
-
-  
 }).on('disconnect', function () {
   console.log('QiSession disconnected!');
 });
