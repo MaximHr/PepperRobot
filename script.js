@@ -1,4 +1,4 @@
-var session = new QiSession();
+// var session = new QiSession();
 
 var whichLevel = 0;
 const levels = [
@@ -20,6 +20,11 @@ const levels = [
   {name: 'Stepan', images: [{url: "https://www.varriosport.bg/media/6/32521.jpg", correct:true}, 
   {url: "https://www.varriosport.bg/media/6/32521.jpg", correct:false}]}
 ];
+
+
+  for(var i = 0; i < levels.length;i++) {
+    createButton(levels[i]);
+  }
 
 function removePopup() {
   setTimeout(function() {
@@ -56,9 +61,9 @@ function answerHandler(i) {
   document.querySelector(`#img${i}`).setAttribute('clicked', true);
   if(JSON.parse(document.querySelector(`#img${i}`).getAttribute('correct'))) {
     //correct answer 
-    session.service("ALMemory").then(function (memory) {
-      memory.raiseEvent("success","param1");
-    });
+    // session.service("ALMemory").then(function (memory) {
+    //   memory.raiseEvent("success","param1");
+    // });
     document.querySelectorAll('.option')[i].style.border = '6px solid rgb(88, 204, 2)';
 
     //check if all correct answers are clicked
@@ -83,9 +88,9 @@ function answerHandler(i) {
     //wrong answer
     createPopup(`<h1>Грешен отговор</h1><button id='try-again' onclick='removePopup();'>Опитай пак</button>`);
 
-    session.service("ALMemory").then(function (memory) {
-      memory.raiseEvent("failure","param2");
-    });
+    // session.service("ALMemory").then(function (memory) {
+    //   memory.raiseEvent("failure","param2");
+    // });
     document.querySelectorAll('.option')[i].style.border = '6px solid red';
   }
 }
@@ -93,7 +98,6 @@ function clickHandler(level) {
   for(var i = 0;i < levels.length;i++) {
     if(levels[i].name == level.name) {
       whichLevel = i;
-      document.querySelector('.back-button').innerHTML = whichLevel + ' + ' + level.name;
     }
   }
   setTimeout(function() {
@@ -124,20 +128,18 @@ function clickHandler(level) {
 };
 
 function createButton(level) {
-  
   const el = document.createElement('button');
   el.setAttribute('class', 'button');
   el.innerHTML = level.name;
+  el.style.opacity = 1;
   el.setAttribute('onclick', `clickHandler(${JSON.stringify(level)})`);
   document.querySelector('.button-container').appendChild(el);
 }
 
-
-
-session.socket().on('connect', function () {
-  for(var i = 0; i < levels.length;i++) {
-    createButton(levels[i]);
-  }
-}).on('disconnect', function () {
-  console.log('QiSession disconnected!');
-});
+// session.socket().on('connect', function () {
+//   for(var i = 0; i < levels.length;i++) {
+//     createButton(levels[i]);
+//   }
+// }).on('disconnect', function () {
+//   console.log('QiSession disconnected!');
+// });
