@@ -8,6 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  width: 100vw;
   height: 100vh;
 }
 .background {
@@ -24,6 +26,8 @@ body {
   left: 50%;
   top: 50%;
   text-align: center;
+  animation: showpopup 0.33s ease-in-out forwards;
+  transform-origin: top left;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -45,7 +49,7 @@ body {
   color: white;
   font-size: 2.25rem;
   margin-top: 3rem;
-  background-color: rgb(110, 198, 43);
+  background-color: rgb(9, 119, 209);
   padding: 1.66rem 2.25rem;
   border: none;
   border-radius: 10px;
@@ -65,18 +69,30 @@ body {
 
 .button-container {
   display: flex;
-  flex-wrap: wrap; /* Wrap buttons to new lines when they exceed width */
   justify-content: center;
+  flex-wrap: wrap;
+  /* display:grid; */
+   /* Wrap buttons to new lines when they exceed width */
+  /* justify-content: center; */
+}
+
+.button-container .button {
+  transform: scale(0);
+  margin: 30px 15px;
+  width: 100%; /* Make sure each item takes the full width of its container */
+  max-width: 300px;
+  transform-origin: center;
+  animation: show 0.2s ease-in-out forwards;
 }
 .back-button {
   position: absolute;
   display: none;
-  left: 20px;
-  top: 20px;
-  padding:3vh 4vw;
-  background-color:rgb(110, 198, 43);
+  left: 25px;
+  top: 25px;
+  padding: 1.25rem 3rem;
+  background-color:rgb(9, 119, 209);
   color: #fff;
-  font-size: 3vh;
+  font-size: 1.5rem;
   text-align: center;
   box-shadow: 7px 7px 0 #494c5b;
   border-radius: 10px;
@@ -95,9 +111,9 @@ body {
 .button {
   padding: 4vh 5vw;
   margin: 0.5em;
-  font-size: 5vh;
+  font-size: 2.25rem;
   text-align: center;
-  background-color: #4d8acc;
+  background-color: rgb(9, 119, 209);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -109,7 +125,8 @@ body {
 }
 
 .button:active {
-  transform: translateY(7px);
+  position: relative;
+  top: 7px;
   box-shadow: 0px 0px 0 #494e5b;
 }
 
@@ -135,7 +152,7 @@ body {
   margin: 1.25rem;
 }
 .img-main {
-  border: 6px solid blue;
+  border: 6px solid rgb(9, 119, 209);
   width: 40%;
   height: 250px;
 }
@@ -149,7 +166,20 @@ body {
   max-height: 100%; /* Ensures the image does not exceed the option div */
 }
 
-.button-container .button {
-  opacity: 0;
-  transition: all 0.5s ease;
+
+@keyframes show {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes showpopup {
+  from {
+    transform: scale(0) translate(-50%, -50%);
+  }
+  to {
+    transform: scale(1) translate(-50%, -50%);
+  }
 }
