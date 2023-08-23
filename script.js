@@ -1,9 +1,4 @@
 var session = new QiSession();
-// function preloadImage(url)
-// {
-//     var img=new Image();
-//     img.src=url;
-// }
 
 var whichLevel = 0;
 const levels = [
@@ -53,16 +48,55 @@ const levels = [
       {url: "./images/bag-min.png", correct:false, audio:'./audio/19_bag.wav'},
     ]
   },
+  {
+    name: 'Портокал', 
+    // папагал и праскова
+    mainImage: './images/orange-min.png',
+    audio: './audio/27_orange.wav',
+    answers: [
+      {url: "./images/parrot-min.png", correct:true, audio:'./audio/27_parrot.wav'}, 
+      {url: "./images/peach-min.jpg", correct:false, audio:'./audio/27_peach.wav'},
+    ]
+  },
+  {
+    name: 'Филия', 
+    // кутия и чаша
+    mainImage: './images/bread-min.png',
+    audio: './audio/25_sliceofbread.wav',
+    answers: [
+      {url: "./images/box-min.png", correct:true, audio:'./audio/25_box.wav'}, 
+      {url: "./images/cup-min.jpg", correct:false, audio:'./audio/25_cup.wav'},
+    ]
+  },{
+    name: 'Питка', 
+    // китка и рокля
+    mainImage: './images/pitka-min.png',
+    audio: './audio/24_pitka.wav',
+    answers: [
+      {url: "./images/wrist-min.png", correct:true, audio:'./audio/24_kitka_wrist.wav'}, 
+      {url: "./images/dress-min.png", correct:false, audio:'./audio/24_dress.wav'},
+    ]
+  },{
+    name: 'Чай', 
+    // пай и пантофи
+    mainImage: './images/tea-min.png',
+    audio: './audio/23_tea.wav',
+    answers: [
+      {url: "./images/pie-min.png", correct:true, audio:'./audio/23_pie.wav'}, 
+      {url: "./images/slippers-min.png", correct:false, audio:'./audio/23_slippers.wav'},
+    ]
+  },{
+    name: 'Печка', 
+    // мечка и вълк
+    mainImage: './images/stove-min.png',
+    audio: './audio/22_stove.wav',
+    answers: [
+      {url: "./images/bear-min.png", correct:true, audio:'./audio/22_bear.wav'}, 
+      {url: "./images/wolf-min.png", correct:false, audio:'./audio/22_wolf.wav'},
+    ]
+  }
 ];
 
-
-  // for(var i = 0; i < levels.length;i++) {
-  //   createButton(levels[i], i);
-  //   // preloadImage(levels[i].mainImage);
-  //   // for(var j = 0; j < levels[i].answers.length; j++){
-  //   //     preloadImage(levels[i].answers[j]);
-  //   // }
-  // 
 
 function shuffleArray(a) {
     var j, x, i;
@@ -119,8 +153,19 @@ function nextLevel() {
 
 function answerHandler(i) {
   document.querySelector(`#img${i}`).setAttribute('clicked', true);
+  
+  var wordAudio = new Audio(levels[whichLevel].audio);
   var audio = new Audio(document.querySelector(`#img${i}`).getAttribute('audioFile'));
-  audio.play();
+
+  audio.oncanplaythrough = function() {
+    audio.play();
+
+    // says the rhyme afterwards
+    // setTimeout(function()  {
+    //   wordAudio.play();
+    // }, audio.duration * 1000)
+  }
+
   
   if(JSON.parse(document.querySelector(`#img${i}`).getAttribute('correct'))) {
     //correct answer 
@@ -158,13 +203,16 @@ function answerHandler(i) {
   }
 }
 function clickHandler(level) {
+
+  var audio = new Audio(level.audio);
+  audio.play();
+
   for(var i = 0;i < levels.length;i++) {
     if(levels[i].name == level.name) {
       whichLevel = i;
     }
   }
-  var audio = new Audio(level.audio);
-  audio.play();
+
   setTimeout(function() {
     var imagesHtml = '';
     shuffleArray(level.answers)
@@ -215,9 +263,6 @@ session.socket().on('connect', function () {
   for(var i = 0; i < levels.length;i++) {
     createButton(levels[i], i);
   }
-  session.service("ALMemory").then(function (memory) {
-    memory.raiseEvent("menu","menu1");
-  });
 }).on('disconnect', function () {
   console.log('QiSession disconnected!');
 });
