@@ -11,54 +11,69 @@ const levels = [
     name: 'Лейка', 
     // пейка и дърво
     mainImage: './images/leika-min.jpg',
-    images: [
-      {url: "./images/peika-min.jpg", correct:true}, 
-      {url: "./images/tree-min.png", correct:false},
+    audio: './audio/12_waterincan.wav',
+    answers: [
+      {url: "./images/peika-min.jpg", correct:true, audio:'./audio/12_bench.wav'}, 
+      {url: "./images/tree-min.png", correct:false, audio:'./audio/12_tree.wav'},
     ]
   }, {
     name: 'Зар', 
     // фар и книга
     mainImage: './images/dice-min.png',
-    images: [
-      {url: "./images/lighthouse-min.png", correct:true},
-      {url: "./images/book-min.png", correct:false},
+    audio: './audio/28_dice.wav',
+    answers: [
+      {url: "./images/lighthouse-min.png", correct:true, audio:'./audio/28_lighthouse.wav'},
+      {url: "./images/book-min.png", correct:false, audio:'./audio/28_book.wav'},
     ]
   }, {
     name: 'Птица', 
     // пица и сламка
     mainImage: './images/bird-min.png',
-    images: [
-      {url: "./images/pizza-min.png", correct:true}, 
-      {url: "./images/straw-min.png", correct:false},
+    audio: './audio/13_bird.wav',
+    answers: [
+      {url: "./images/pizza-min.png", correct:true, audio:'./audio/13_pizza.wav'}, 
+      {url: "./images/straw-min.png", correct:false, audio:'./audio/13_straw.wav'},
     ]
   }, {
     name: 'Книга', 
     // верига и цвете
     mainImage: './images/book-min.png',
-    images: [
-      {url: "./images/chain-min.png", correct:true}, 
-      {url: "./images/flower-min.png", correct:false},
+    audio: './audio/18_book.wav',
+    answers: [
+      {url: "./images/chain-min.png", correct:true, audio:'./audio/18_chain.wav'}, 
+      {url: "./images/flower-min.png", correct:false, audio:'./audio/18_flower.wav'},
     ]
   }, {
     name: 'Самолет', 
     // билет и чанта
     mainImage: './images/plane-min.png',
-    images: [
-      {url: "./images/ticket-min.png", correct:true}, 
-      {url: "./images/bag-min.png", correct:false},
+    audio: './audio/19_plane.wav',
+    answers: [
+      {url: "./images/ticket-min.png", correct:true, audio:'./audio/19_ticket.wav'}, 
+      {url: "./images/bag-min.png", correct:false, audio:'./audio/19_bag.wav'},
     ]
   },
 ];
 
 
   // for(var i = 0; i < levels.length;i++) {
-    // createButton(levels[i], i);
-    // preloadImage(levels[i].mainImage);
-    // for(var j = 0; j < levels[i].images.length; j++){
-    //     preloadImage(levels[i].images[j]);
-    // }
-  // }
+  //   createButton(levels[i], i);
+  //   // preloadImage(levels[i].mainImage);
+  //   // for(var j = 0; j < levels[i].answers.length; j++){
+  //   //     preloadImage(levels[i].answers[j]);
+  //   // }
+  // 
 
+function shuffleArray(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
 function removePopup() {
   setTimeout(function() {
     document.body.removeChild(document.querySelector('.background'));
@@ -80,6 +95,18 @@ function createPopup(innerHTML) {
   document.body.appendChild(popup);
 }
 
+function goBack() {
+  document.body.removeChild(document.querySelector('.container'));
+  document.body.removeChild(document.querySelector('#backButton'));
+  var btnContainer = document.createElement('div');
+  btnContainer.className = 'button-container';
+  btnContainer.id = 'buttonContainer';
+  document.body.appendChild(btnContainer);
+    for(var i = 0; i < levels.length;i++) {
+      createButton(levels[i], i);
+    }
+}
+
 function nextLevel() {
   removePopup();
   document.body.removeChild(document.querySelector('.container'))
@@ -92,6 +119,9 @@ function nextLevel() {
 
 function answerHandler(i) {
   document.querySelector(`#img${i}`).setAttribute('clicked', true);
+  var audio = new Audio(document.querySelector(`#img${i}`).getAttribute('audioFile'));
+  audio.play();
+  
   if(JSON.parse(document.querySelector(`#img${i}`).getAttribute('correct'))) {
     //correct answer 
     session.service("ALMemory").then(function (memory) {
@@ -113,7 +143,7 @@ function answerHandler(i) {
       createPopup(`
         <h1>Браво!</h1>
         <div class='popup-btns'>
-          <button style='margin-right: 20px' id='try-again' onclick='removePopup(); location.reload()'>Към меню</button>
+          <button style='margin-right: 20px' id='try-again' onclick='removePopup(); goBack()'>Към меню</button>
           <button onClick='nextLevel()' style='margin-left: 20px'>Напред</button>
         </div>`);
     }
@@ -133,11 +163,14 @@ function clickHandler(level) {
       whichLevel = i;
     }
   }
+  var audio = new Audio(level.audio);
+  audio.play();
   setTimeout(function() {
     var imagesHtml = '';
-    for(var i = 0;i < level.images.length;i++) {
+    shuffleArray(level.answers)
+    for(var i = 0;i < level.answers.length;i++) {
       imagesHtml += ` <div class="option" onclick={answerHandler(${i})} >
-      <img loading='eager' src=${level.images[i].url} correct='${level.images[i].correct}' id='img${i}' alt="option ${i + 1}">
+      <img loading='eager' src=${level.answers[i].url} correct='${level.answers[i].correct}' audioFile='${level.answers[i].audio}' id='img${i}' alt="option ${i + 1}">
     </div>`
     }
     if(document.querySelector('.button-container') != null) {
@@ -155,6 +188,15 @@ function clickHandler(level) {
     ${imagesHtml}
     </div>
   ` 
+    if(document.querySelector('.back-button') == null) {
+      const el = document.createElement('button');
+      el.innerHTML = 'Назад';
+      el.setAttribute('class', 'back-button');
+      el.setAttribute('id', 'backButton');
+      el.setAttribute('onclick', 'goBack()');
+      document.body.appendChild(el);
+    } 
+    
     document.querySelector('.back-button').style.display = 'flex';
     document.body.appendChild(container);
   }, 250);
@@ -173,6 +215,9 @@ session.socket().on('connect', function () {
   for(var i = 0; i < levels.length;i++) {
     createButton(levels[i], i);
   }
+  session.service("ALMemory").then(function (memory) {
+    memory.raiseEvent("menu","menu1");
+  });
 }).on('disconnect', function () {
   console.log('QiSession disconnected!');
 });
